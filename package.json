@@ -1,0 +1,23 @@
+{
+  "name": "template-express-sequelize",
+  "version": "1.0.0",
+  "description": "This is startup code template for node express backend using sequelize and mysql, I will do it very simple may be with only one model users and and implement authentications so I can use it as startup code for future projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "sequelize",
+    "auth"
+  ],
+  "author": "Farzan Khan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3"
+  }
+}
