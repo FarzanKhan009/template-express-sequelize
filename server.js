@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require('dotenv').config()
 
 const app = express();
 
@@ -25,6 +26,7 @@ db.sequelize.sync();
 // });
 
 require("./app/routes/user.routes")(app);
+require("./app/routes/auth.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
