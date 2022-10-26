@@ -25,9 +25,10 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch(err => {
-      res.status(500).send({
+      res.status(500).json({
         message:
-          err.message || "Some error occurred while creating the User."
+          err.message || "Some error occurred while creating the User.",
+        error: err
       });
     });
 };
@@ -83,8 +84,9 @@ exports.update = (req, res) => {
       }
     })
     .catch(err => {
-      res.status(500).send({
-        message: "Error updating User with id=" + id
+      res.status(500).json({
+        message: "Error updating User with id=" + id,
+        error: err
       });
     });
 };
@@ -108,39 +110,27 @@ exports.delete = (req, res) => {
       }
     })
     .catch(err => {
-      res.status(500).send({
-        message: "Could not delete User with id=" + id
+      res.status(500).json({
+        message: "Could not delete User with id=" + id,
+        error: err
       });
     });
 };
 
-// Delete all Users from the database.
-exports.deleteAll = (req, res) => {
-  User.destroy({
-    where: {},
-    truncate: false
-  })
-    .then(nums => {
-      res.send({ message: `${nums} Users were deleted successfully!` });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all users."
-      });
-    });
-};
+// // Delete all Users from the database.
+// exports.deleteAll = (req, res) => {
+//   User.destroy({
+//     where: {},
+//     truncate: false
+//   })
+//     .then(nums => {
+//       res.send({ message: `${nums} Users were deleted successfully!` });
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while removing all users."
+//       });
+//     });
+// };
 
-// find all published User
-exports.findAllPublished = (req, res) => {
-  User.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving users."
-      });
-    });
-};

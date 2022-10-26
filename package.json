@@ -4,7 +4,8 @@
   "description": "This is startup code template for node express backend using sequelize and mysql, I will do it very simple may be with only one model users and and implement authentications so I can use it as startup code for future projects.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./server.js"
   },
   "keywords": [
     "express",
