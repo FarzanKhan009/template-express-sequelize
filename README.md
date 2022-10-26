@@ -42,12 +42,7 @@ module.exports = {
 **New Module**
 
 Whenever a new module need to be created do the following
-1. Create a model file in model folder
-2. model/index.js file extend db object with new models. Consider extending db object at the end of the file.
-```
-db.newModel = require("./newModel.model.js")(sequelize, Sequelize);
-```
-3. Create newModel.model.js in app/models directory
+1. Create a model file in model directory newModel.model.js
 ```
 // app/models/newModel.model.js
 
@@ -75,7 +70,11 @@ module.exports = (sequelize, Sequelize) => {
 
 
 ```
-4. Create model relevant controller in controllers directory and define necessary functions
+2. model/index.js file extend db object with new models. Consider extending db object at the end of the file.
+```
+db.newModel = require("./newModel.model.js")(sequelize, Sequelize);
+```
+3. Create model relevant controller in controllers directory and define necessary functions
 ```
 // example
 // controllers/newModel.controller.js
